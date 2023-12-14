@@ -1,40 +1,36 @@
 ﻿namespace PZ_16;
 internal class Program
 {
-    // параметры карты
-    static int mapSize = 25; // размер
+    // карта
+    static int mapSize = 25; // размер поля
     static char[,] map = new char[mapSize, mapSize];
 
-    // начальная позиция игрока
+    // стартовая позиция
     static int playerY = mapSize / 2;
     static int playerX = mapSize / 2;
 
-    // количество элементов
-    static byte enemies = 5;
-    static byte buffs = 5;
-    static int health = 5;
-    static int step = 0;
-    static int stepsave = 0;
+    static byte enemies = 5; // враги
+    static byte buffs = 5;   // бафы
+    static int health = 5;   // хилки
+    static int step = 0;     // шаги
+    static int stepsave = 0; // сохраненный шаг
 
-    // характеристики игрока
-    static int plHP = 50;
-    static int plDMG = 10;
+    static int plHP = 50; // здоровье игрока
+    static int plDMG = 10;// урон игрока
 
-    // характеристики врагов
-    static int enHP = 30;
-    static int enDMG = 5;
+    static int enHP = 30; // здоровье врагов
+    static int enDMG = 5; // урон врагов
 
     // расположение текста в окне
     static int centerY = Console.WindowHeight / 2;
     static int centerX = (Console.WindowHeight / 2) - 15;
 
 
-    static string lastAction = "Начало игры";
-    static bool bringbuff = false;
+    static string lastAction = "Начало игры"; // последние действие
+    static bool bringbuff = false;            // подобрал ли усиление
     static int selectedMenuItem = 0;
 
 
-    //сохранение и загрузка
     static void Savegame() // сохранение
     {
         string path = "save.txt"; // создание текстового файла
@@ -136,7 +132,7 @@ internal class Program
         StartGame();
         Move();
     }
-    static void PrintCenteredText(string text, int y)
+    static void PrintCenteredText(string text, int y) // текст по центру
     {
         int centerX = Console.WindowWidth / 2 - text.Length / 2;
         Console.SetCursorPosition(centerX, y);
@@ -148,8 +144,8 @@ internal class Program
     {
         Random random = new Random();
 
-        // Создание пустой карты
-        for (int i = 0; i < mapSize; i++)
+        
+        for (int i = 0; i < mapSize; i++) // Создание пустого поля
         {
             for (int j = 0; j < mapSize; j++)
             {
@@ -164,9 +160,9 @@ internal class Program
                 }
             }
         }
-        map[playerY, playerX] = 'P'; // в середину карты ставится игрок
+        map[playerY, playerX] = 'P'; // игрок ставится в середину поля
 
-        // временные координаты для проверки занятости ячейки
+        // временные координаты для проверки занятости клетки
         int x;
         int y;
 
@@ -182,7 +178,7 @@ internal class Program
             }
         }
 
-        while (buffs > 0) // добавление баффов
+        while (buffs > 0) // добавление усилений
         {
             x = random.Next(0, mapSize);
             y = random.Next(0, mapSize);
@@ -194,7 +190,7 @@ internal class Program
             }
         }
 
-        while (health > 0) // добавление аптечек
+        while (health > 0) // добавление хилок
         {
             x = random.Next(0, mapSize);
             y = random.Next(0, mapSize);
@@ -208,14 +204,14 @@ internal class Program
         UpdateMap();
     }
 
-    static void UpdateMap()  // отображение заполненной карты на консоли
+    static void UpdateMap()  // отображение заполненного поля в консоли
     {
         Console.Clear();
         for (int i = 0; i < mapSize; i++) //запись карты в консоль
         {
             for (int j = 0; j < mapSize; j++)
             {
-                switch (map[i, j]) // окраска элементов
+                switch (map[i, j]) // разные цвета элементов
                 {
                     case 'E':
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -238,7 +234,7 @@ internal class Program
         }
     }
 
-    static void Move()
+    static void Move() // движение игрока
     {
         // предыдущие координаты игрока
         int playerOldY;
@@ -290,9 +286,9 @@ internal class Program
             if (playerX >= mapSize) playerX = mapSize - 1;
             if (playerY >= mapSize) playerY = mapSize - 1;
 
-            Console.CursorVisible = false; // Скрытый курсор
+            Console.CursorVisible = false; // невидимый курсор
 
-            // предыдущее положение игрока затирается
+            // предыдущее положение игрока удаляется
             map[playerOldY, playerOldX] = '_';
             Console.SetCursorPosition(playerOldY, playerOldX);
             Console.Write('_');
@@ -311,7 +307,7 @@ internal class Program
             Heal();
             Victory();
 
-            // отображение показателей
+            // показатели
             int x, y;
             Console.SetCursorPosition(0, 25);
             Console.WriteLine($"Здоровье: {plHP}  ");
@@ -327,7 +323,7 @@ internal class Program
 
     static void Victory()
     {
-        for (int i = 0; i < mapSize; i++) // проверка на наличие врагов
+        for (int i = 0; i < mapSize; i++) // есть ли враги
         {
             for (int j = 0; j < mapSize; j++)
             {
@@ -352,7 +348,6 @@ internal class Program
         Environment.Exit(0); // Выход
     }
 
-    //баффы, хилл и логика боя
     static void BuffUp() // Логика баффов
     {
         if (map[playerX, playerY] == 'B')
@@ -376,15 +371,15 @@ internal class Program
         if (map[playerX, playerY] == 'H')
         {
             plHP = 50; // лечение до максимума
-            map[playerX, playerY] = '_'; // решение проблемы "фантомного элемента"
+            map[playerX, playerY] = '_'; 
             lastAction = "Поднята аптечка                        ";
         }
-    }
+    } // хил
     static void Fight()
     {
-        if (map[playerX, playerY] == 'E') // если встать на врага
+        if (map[playerX, playerY] == 'E')
         {
-            while (plHP > 0 && enHP > 0) // пока оба живы
+            while (plHP > 0 && enHP > 0) // пока живы
             {
                 enHP = enHP - plDMG;
                 plHP = plHP - enDMG;
@@ -417,16 +412,16 @@ internal class Program
                 }
                 else // анимация боя
                 {
-                    for (int i = 0; i < 3; i++) // Перебор символов анимации
+                    for (int i = 0; i < 3; i++)
                     {
                         Console.SetCursorPosition(playerY, playerX);
-                        Console.Write('|');
+                        Console.Write('+');
                         Thread.Sleep(60);
                         Console.SetCursorPosition(playerY, playerX);
-                        Console.Write('/');
+                        Console.Write('*');
                         Thread.Sleep(60);
                         Console.SetCursorPosition(playerY, playerX);
-                        Console.Write('-');
+                        Console.Write('%');
                         Thread.Sleep(60);
                     }
                     Console.Write('_');
@@ -434,15 +429,15 @@ internal class Program
             }
             enHP = 30; // возврат здоровья для следующего игрока
         }
-    }
+    } // бой
 
     // меню
     static void StartGame()
     {
         Console.SetCursorPosition(centerX, centerY);
-        PrintCenteredText("N - начать новую игру", centerY);
+        PrintCenteredText("N - начать игру", centerY);
         PrintCenteredText("  L - загрузить последнее сохранение", centerY + 1);
-        PrintCenteredText("Escape - выйти из игры", centerY + 2);
+        PrintCenteredText("Escape - выйти", centerY + 2);
 
         switch (Console.ReadKey().Key)
         {
@@ -469,7 +464,7 @@ internal class Program
         y = playerY;
     }
 
-    static void Centertext(string text, int y) //  оформление по середине
+    static void Centertext(string text, int y) //  текст по середине
     {
         int centerX = Console.WindowWidth / 2 - text.Length / 2;
         Console.SetCursorPosition(centerX, y);
