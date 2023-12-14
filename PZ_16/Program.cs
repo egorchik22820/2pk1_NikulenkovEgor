@@ -1,7 +1,6 @@
 ﻿namespace PZ_16;
 internal class Program
 {
-    // карта
     static int mapSize = 25; // размер поля
     static char[,] map = new char[mapSize, mapSize];
 
@@ -59,7 +58,6 @@ internal class Program
             }
         }
     }
-
 
     static void Loadgame() // загрузка
     {
@@ -122,21 +120,37 @@ internal class Program
         }
     }
 
-
-
-
-
-    static void Main(string[] args)
+    static void GetPlayerPosition(out int x, out int y) // узнать позицию игрока
     {
-        Console.Title = "Game";
-        StartGame();
-        Move();
+        x = playerX;
+        y = playerY;
     }
-    static void PrintCenteredText(string text, int y) // текст по центру
+
+    static void Victory()
     {
-        int centerX = Console.WindowWidth / 2 - text.Length / 2;
-        Console.SetCursorPosition(centerX, y);
-        Console.WriteLine(text);
+        for (int i = 0; i < mapSize; i++) // есть ли враги
+        {
+            for (int j = 0; j < mapSize; j++)
+            {
+                if (map[i, j] == 'E')
+                {
+                    return;
+                }
+            }
+        }
+
+        Console.Clear();
+        Centertext("Игра пройдена", centerY);
+        Centertext("Вы сделали " + step + " шагов", centerY + 1);
+        Centertext("Нажмите Enter для выхода из игры", centerY + 2);
+
+        ConsoleKeyInfo keyInfo;
+        do
+        {
+            keyInfo = Console.ReadKey();
+        } while (keyInfo.Key != ConsoleKey.Enter);
+
+        Environment.Exit(0); // Выход
     }
 
     //карта и движение
@@ -321,33 +335,6 @@ internal class Program
         }
     }
 
-    static void Victory()
-    {
-        for (int i = 0; i < mapSize; i++) // есть ли враги
-        {
-            for (int j = 0; j < mapSize; j++)
-            {
-                if (map[i, j] == 'E')
-                {
-                    return;
-                }
-            }
-        }
-
-        Console.Clear();
-        Centertext("Игра пройдена", centerY);
-        Centertext("Вы сделали " + step + " шагов", centerY + 1);
-        Centertext("Нажмите Enter для выхода из игры", centerY + 2);
-
-        ConsoleKeyInfo keyInfo;
-        do
-        {
-            keyInfo = Console.ReadKey();
-        } while (keyInfo.Key != ConsoleKey.Enter);
-
-        Environment.Exit(0); // Выход
-    }
-
     static void BuffUp() // Логика баффов
     {
         if (map[playerX, playerY] == 'B')
@@ -435,9 +422,9 @@ internal class Program
     static void StartGame()
     {
         Console.SetCursorPosition(centerX, centerY);
-        PrintCenteredText("N - начать игру", centerY);
-        PrintCenteredText("  L - загрузить последнее сохранение", centerY + 1);
-        PrintCenteredText("Escape - выйти", centerY + 2);
+        Centertext("N - начать игру", centerY);
+        Centertext("  L - загрузить последнее сохранение", centerY + 1);
+        Centertext("Escape - выйти", centerY + 2);
 
         switch (Console.ReadKey().Key)
         {
@@ -455,13 +442,11 @@ internal class Program
         }
     }
 
-
-
-
-    static void GetPlayerPosition(out int x, out int y) // узнать позицию игрока
+    static void Main(string[] args)
     {
-        x = playerX;
-        y = playerY;
+        Console.Title = "Game";
+        StartGame();
+        Move();
     }
 
     static void Centertext(string text, int y) //  текст по середине
@@ -470,10 +455,5 @@ internal class Program
         Console.SetCursorPosition(centerX, y);
         Console.WriteLine(text);
     }
-
-
-
     //ntntnt
-
 }
- 
