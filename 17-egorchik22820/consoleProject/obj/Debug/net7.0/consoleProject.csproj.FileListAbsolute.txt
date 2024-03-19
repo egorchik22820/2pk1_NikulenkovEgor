@@ -1,0 +1,15 @@
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\bin\Debug\net7.0\consoleProject.exe
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\bin\Debug\net7.0\consoleProject.deps.json
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\bin\Debug\net7.0\consoleProject.runtimeconfig.json
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\bin\Debug\net7.0\consoleProject.dll
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\bin\Debug\net7.0\consoleProject.pdb
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.AssemblyInfo.cs
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.sourcelink.json
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.dll
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\refint\consoleProject.dll
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.pdb
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\consoleProject.genruntimeconfig.cache
+C:\Users\1\source\repos\17-egorchik22820\consoleProject\obj\Debug\net7.0\ref\consoleProject.dll
