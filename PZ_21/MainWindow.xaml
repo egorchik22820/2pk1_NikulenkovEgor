@@ -1,0 +1,44 @@
+﻿<Window x:Class="PZ_21.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ_21"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Name="number7" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="7" FontSize="50" Click="number7_Click"/>
+        <Button Name="number8" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="8" FontSize="50" Click="number8_Click"/>
+        <Button Name="number9" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="9" FontSize="50" Click="number9_Click"/>
+        <Button Name="plus" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="+" FontSize="50" Click="plus_Click"/>
+        <Button Name="number4" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="4" FontSize="50" Click="number4_Click"/>
+        <Button Name="number5" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="5" FontSize="50" Click="number5_Click"/>
+        <Button Name="number6" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="6" FontSize="50" Click="number6_Click"/>
+        <Button Name="minus" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="-" FontSize="50" Click="minus_Click"/>
+        <Button Name="number3" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="3" FontSize="50" Click="number3_Click"/>
+        <Button Name="number2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="2" FontSize="50" Click="number2_Click"/>
+        <Button Name="number1" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="1" FontSize="50" Click="number1_Click"/>
+        <Button Name="multiplication" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="*" FontSize="50" Click="multiplication_Click"/>
+        <Button Name="number0" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="0" FontSize="50" Click="number0_Click"/>
+        <Button Name="equally" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="=" FontSize="50" Click="equally_Click"/>
+        <Button Name="division" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="/" FontSize="50" Click="division_Click"/>
+        <Button Name="delete" Grid.Row="4" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="DEL" FontSize="30" Click="delete_Click"/>
+        
+        <TextBlock Name="inputText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" TextAlignment="Right" FontSize="40"></TextBlock>
+
+    </Grid>
+</Window>
