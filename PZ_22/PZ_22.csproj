@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\Bold.png" />
+    <None Remove="Icons\italic.jpg" />
+    <None Remove="Icons\remove.png" />
+    <None Remove="Icons\savit.png" />
+    <None Remove="Icons\success.png" />
+    <None Remove="Icons\underline.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\Bold.png" />
+    <Resource Include="Icons\italic.jpg" />
+    <Resource Include="Icons\remove.png" />
+    <Resource Include="Icons\savit.png" />
+    <Resource Include="Icons\success.png" />
+    <Resource Include="Icons\underline.png" />
+  </ItemGroup>
+
+</Project>
