@@ -1,0 +1,75 @@
+﻿<Window x:Class="Никуленков_Проект_2пк1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Никуленков_Проект_2пк1"
+        mc:Ignorable="d"
+       Title="Главное окно" Height="500" Width="900" Loaded="Window_Loaded" Closing="Window_Closing">
+    <!--Основная разметка-->
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StatusBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#EA8DF7">
+            <Separator Margin="10 0 10 0"/>
+            <Button>
+                <Image Source="/icons/TG.png" />
+            </Button>
+            <Separator Margin="10 0 10 0"/>
+            <Button>
+                <Image Source="/icons/VK.png" />
+            </Button>
+            <Separator Margin="10 0 10 0"/>
+            <Button>
+                <Image Source="/icons/TW.png" />
+            </Button>
+            <Separator Margin="10 0 10 0"/>
+            <Button MinWidth="100"  FontSize="15" Content="Выйти" Click="Button_Out" Background="#EA8DF7"/>
+        </StatusBar>
+
+        <TextBlock Margin="5" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Общественное питание Оренбург" FontFamily="Intro Demo CAPS" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" />
+
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <!--Информационные блоки и полезная информация-->
+            <TextBlock Margin="0 10 0 0" Text="О НАС" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15" FontFamily="Intro Demo CAPS" />
+            <Border Margin="10" HorizontalAlignment="Center" Background="White" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0">
+                    </DropShadowEffect>
+                </Border.Effect>
+                <TextBlock TextWrapping="Wrap" FontFamily="Comfortaa" Text="     Общепит Оренбург - организация, которая за 10 лет зарекомендовала себя как лучшее место для общественного питания. Здесь вы найдете большой ассортимент выпечки, горячего, напитков. Лучшие сотрудники, которые помогут вам, обслужат и приготовят самую вкусную еду. Также у нас самые низкие цены в городе." VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13"/>
+            </Border>
+
+            <TextBlock Margin="10" Grid.Column="0" Grid.Row="2" Text="КОНТАКТНАЯ ИНФОРМАЦИЯ" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15" FontFamily="Intro Demo CAPS"/>
+            <Border Margin="10" HorizontalAlignment="Center" Background="White" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0">
+                    </DropShadowEffect>
+                </Border.Effect>
+                <TextBlock Grid.Column="0" Grid.Row="3" FontFamily="Comfortaa" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15">
+                    Номер телефона: 835327498123
+                    <LineBreak />
+                    ИНН: 1234123412
+                    <LineBreak />
+                    Электронная почта: obshepit@orb.ru
+                    <LineBreak />
+                    Адрес: Оренбург, ул. Bолгодарского 5
+                </TextBlock>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBlock Margin="10" Grid.Column="1" Grid.Row="0" Text="Фотографии" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15" FontFamily="Intro Demo CAPS"/>
+            <Image Margin="20" Source="/dop/ph1.jpeg"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" MaxHeight="200"/>
+            <Button MinHeight="30" MinWidth="100" Margin="20" Grid.Column="1" Grid.Row="2" Content="Сделать заказ" FontFamily="Comfortaa" Background=" #EA8DF7" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12" Click="Button_Order"/>
+            <TextBlock Margin="10" Grid.Column="1" Grid.Row="3" Name="Order" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15" FontFamily="Intro Demo CAPS"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="Никуленков_Проект_2пк1.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Никуленков_Проект_2пк1"
+        mc:Ignorable="d"
+        Title="Панель администратора" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+    <!--Фон окна-->
+    <Window.Background>
+        <ImageBrush ImageSource="/dop/ph3.jpg"/>
+    </Window.Background>
+
+    <StackPanel>
+        <!--Строение окна-->
+        <TextBlock Margin="15" TextWrapping="Wrap" Text="Общественное питание Оренбург" FontFamily="Intro Demo CAPS" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"/>
+        <TextBlock Margin="0 0 0 15" TextWrapping="Wrap" Text="Панель администратора. Список активных заказов" FontFamily="Intro Demo CAPS" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"/>
+        <ListBox Background="Azure" SelectionMode="Multiple" MinHeight="100" FontSize="15" Name="ProductsAdmin" AllowDrop="True" Margin="6,0,0,6"/>
+
+        <Button Margin="5" MinHeight="30" MaxWidth="300" FontFamily="Comfortaa" Content="Заказ выполнен!" FontSize="15" Click="Click_Delete" Background="#EA8DF7" />
+        <Button Margin="5" MinHeight="30" MaxWidth="300" FontFamily="Comfortaa" Content="Bнести новый заказ" Click="Click_Add" FontSize="15" Background="#EA8DF7" />
+        <Button Margin="5" MinHeight="30" MaxWidth="300" FontFamily="Comfortaa" Content="Закончить работу" Click="Click_Stop" FontSize="15" Background="#EA8DF7" />
+    </StackPanel>
+</Window>

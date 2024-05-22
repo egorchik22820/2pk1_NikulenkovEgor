@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="dop\ph1.jpeg" />
+    <None Remove="dop\ph3.jpg" />
+    <None Remove="Icons\icon.png" />
+    <None Remove="Icons\TG.png" />
+    <None Remove="Icons\TW.png" />
+    <None Remove="Icons\VK.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="dop\ph1.jpeg" />
+    <Resource Include="dop\ph3.jpg" />
+    <Resource Include="Icons\icon.png" />
+    <Resource Include="Icons\TG.png" />
+    <Resource Include="Icons\TW.png" />
+    <Resource Include="Icons\VK.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NikulenkovLibrary">
+      <HintPath>..\..\NikulenkovLibrary\NikulenkovLibrary\bin\Debug\net7.0-windows\NikulenkovLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
